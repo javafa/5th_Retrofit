@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         // 2. 레트로핏 객체 생성
         Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://api.github.com/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build();
 
         // 3. 서비스 생성 - 내가 만든 인터페이스에 코드를 채워서 넘겨준다
